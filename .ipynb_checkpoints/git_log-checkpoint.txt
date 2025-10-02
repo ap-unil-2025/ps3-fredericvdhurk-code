@@ -1,4 +1,0 @@
-ca6098d Add git history
-210df89 Addition of new message name
-f2377d5 Add hello_git.py
-8fbcf8e Initial commit: Add README
