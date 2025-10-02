@@ -1,37 +1,22 @@
-"""
-Problem 2: Temperature Converter
-Convert between Celsius and Fahrenheit temperatures.
-"""
-
-def celsius_to_fahrenheit(celsius):
+def celsius_to_fahrenheit(celsius_temp):
     """
     Convert Celsius to Fahrenheit.
     Formula: F = (C × 9/5) + 32
-
-    Args:
-        celsius (float): Temperature in Celsius
-
-    Returns:
-        float: Temperature in Fahrenheit
     """
-    # TODO: Implement this function
+    return (celsius_temp * 9/5) + 32 
+
+    
     pass
 
-
-def fahrenheit_to_celsius(fahrenheit):
+def fahrenheit_to_celsius(fahrenheit_temp):
     """
     Convert Fahrenheit to Celsius.
     Formula: C = (F - 32) × 5/9
-
-    Args:
-        fahrenheit (float): Temperature in Fahrenheit
-
-    Returns:
-        float: Temperature in Celsius
     """
-    # TODO: Implement this function
-    pass
+    return (fahrenheit_temp - 32) * 5/9
 
+    
+    pass
 
 def temperature_converter():
     """
@@ -41,34 +26,38 @@ def temperature_converter():
     2. Current unit (C or F)
     3. Convert and display result
     """
-    print("Temperature Converter")
-    print("-" * 30)
+# enter temperature value and unit
+    try:
+        temp_value = float(input("Enter the temperature value: "))
+        temp_unit = input("Enter the current unit (C for Celsius, F for Fahrenheit): ").strip().upper()
+        
+# return converted values
+        if temp_unit == "C":
+            temp_converted = round(celsius_to_fahrenheit(temp_value), 2)
+            print(f"{temp_value:.2f}°C is {temp_converted:.2f}°F")
+        elif temp_unit == "F":
+            temp_converted = round(fahrenheit_to_celsius(temp_value), 2)
+            print(f"{temp_value:.2f}°F is {temp_converted:.2f}°C")
+            
+# invalid unit case
+        else:
+            print("Invalid unit input. Please enter 'C' or 'F'.")
 
-    # TODO: Implement the interactive converter
-    # Remember to:
-    # - Get temperature value from user
-    # - Get unit (C or F) from user
-    # - Validate input
-    # - Perform conversion
-    # - Display result rounded to 2 decimal places
+# invalid value case
+    except ValueError:
+        print("Invalid input value. Please enter a numeric value for temperature.")
+
+        
     pass
-
 
 # Test cases (DO NOT MODIFY)
 if __name__ == "__main__":
     # Test conversions
-    print("Running tests...")
-
-    # Test Celsius to Fahrenheit
-    assert celsius_to_fahrenheit(0) == 32, "0°C should be 32°F"
-    assert celsius_to_fahrenheit(100) == 212, "100°C should be 212°F"
-
-    # Test Fahrenheit to Celsius
-    assert fahrenheit_to_celsius(32) == 0, "32°F should be 0°C"
-    assert fahrenheit_to_celsius(212) == 100, "212°F should be 100°C"
-
+    assert celsius_to_fahrenheit(0) == 32
+    assert celsius_to_fahrenheit(100) == 212
+    assert fahrenheit_to_celsius(32) == 0
+    assert fahrenheit_to_celsius(212) == 100
     print("All tests passed!")
-    print()
 
     # Run interactive converter
     temperature_converter()
