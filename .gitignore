@@ -27,3 +27,11 @@ test_outputs/
 
 # Don't ignore the sample file
 !sample.txt
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+*.log
+test_outputs/
